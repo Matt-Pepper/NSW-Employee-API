@@ -1,6 +1,8 @@
 package nsw.project.server.employees;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,9 +27,10 @@ public class EmployeeController {
 	private EmployeeService service;
 	
 	@GetMapping
-	public ResponseEntity<List<Employee>> getAll() {
+	public ResponseEntity<Object> getAll() {
 		List<Employee> allEmployees = this.service.all();
-		return new ResponseEntity<>(allEmployees, HttpStatus.OK);
+				
+		return new ResponseEntity<Object>(allEmployees, HttpStatus.OK);
 	}
 	
 	@GetMapping("/{id}")
@@ -60,4 +63,5 @@ public class EmployeeController {
     	
     	return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+    
 }

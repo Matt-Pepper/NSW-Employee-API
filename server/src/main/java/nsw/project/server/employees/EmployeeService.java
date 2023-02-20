@@ -69,7 +69,7 @@ public class EmployeeService {
 			checkedEndDate = null;
 			
 		} else {
-			checkedEndDate = data.getStartDate();
+			checkedEndDate = data.getEndDate();
 		}
 			
 		Employee newEmployee = new Employee(cleanedFirstName, cleanedMiddleNames, cleanedLastName, cleanedEmail, cleanedPhoneNumber, cleanedAddress, data.getIsPermanent(), data.getIsFullTime(), data.getHoursPerWeek(), checkedStartDate, checkedEndDate);

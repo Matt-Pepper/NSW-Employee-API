@@ -3,6 +3,8 @@ package nsw.project.server.employees;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,6 +19,7 @@ public class Employee {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@JsonProperty("id")
 	private Long id;
 	
 	// Personal Information
@@ -61,7 +64,7 @@ public class Employee {
 	public Employee() {
 		
 	}
-
+	
 	public Employee(String firstName, String middleNames, String lastName, String email,
 			@Size(min = 10, max = 13) String phoneNumber, String address, Boolean isPermanent, Boolean isFullTime,
 			short hoursPerWeek, Date startDate, Date endDate) {
