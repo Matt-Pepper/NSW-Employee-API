@@ -33,16 +33,14 @@ const EmployeeCard: React.FunctionComponent<IEmployeeResponse> = (props) => {
         }
     };
 
-    const confirm = () => {};
-
     return (
         <Card className="w-50 mw" style={{ minWidth: "200px" }}>
             <CardHeader>{`${firstName} ${lastName}`}</CardHeader>
             <CardBody>
                 <CardText>
-                    <>{`${isPermanent ? "Permanent" : "Contract"} - ${getYearsWorked()}`}</>
+                    {`${isPermanent ? "Permanent" : "Contract"} - ${getYearsWorked()}`}
                     <br />
-                    <>{email}</>
+                    {email}
                 </CardText>
             </CardBody>
             <CardFooter

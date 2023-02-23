@@ -1,10 +1,13 @@
 import { Outlet } from "react-router-dom";
-import EmployeeContainer from "../containers/EmployeeContainer/EmployeeContainer";
+import NavBarComponent from "../components/NavBarComponent/NavBarComponent";
 
 const Root = () => {
+    const pathname = window.location.pathname;
     return (
         <div>
-            <EmployeeContainer />
+            <NavBarComponent />
+            <p></p>
+            <Outlet />
         </div>
     );
 };

@@ -20,7 +20,7 @@ public class EmployeeUpdateDTO {
 	@Email
 	private String email;
 
-	@Pattern(regexp = "(\\+61|0)[0-9]{9}")
+	@Pattern(regexp = "^(?:\\+?61|0) ?(?:4|[578]\\d) ?(?:\\d ?){8}\\b|^(?:\\+61|61|0)?(?:\\((?:0[1-9])\\)|0[1-9])[ ]?\\d{4}[ ]?\\d{4}$")
 	private String phoneNumber;
 
 	private String address;
@@ -38,7 +38,7 @@ public class EmployeeUpdateDTO {
 	private Date endDate;
 
 	public EmployeeUpdateDTO(Long id, String firstName, String middleNames, String lastName,
-			@Email String email, @Pattern(regexp = "(\\+61|0)[0-9]{9}") String phoneNumber, String address,
+			@Email String email, @Pattern(regexp = "^(?:\\+?61|0) ?(?:4|[578]\\d) ?(?:\\d ?){8}\\b|^(?:\\+61|61|0)?(?:\\((?:0[1-9])\\)|0[1-9])[ ]?\\d{4}[ ]?\\d{4}$") String phoneNumber, String address,
 			Boolean isPermanent, Boolean isFullTime, @Min(0) @Max(168) Short hoursPerWeek, Date startDate,
 			Date endDate) {
 		super();

@@ -3,34 +3,38 @@ import ReactDOM from "react-dom/client";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import App from "./App";
+import EmployeeContainer from "./containers/EmployeeContainer/EmployeeContainer";
 import "./index.css";
 import CreateEmployee from "./routes/CreateEmployee";
-import Edit from "./routes/Edit";
 import Root from "./routes/Root";
+import UpdateEmployee from "./routes/UpdateEmployee";
 
 const queryClient = new QueryClient();
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Root />,
-    },
-    {
-        path: "create/",
-        element: <CreateEmployee />,
-    },
-    {
-        path: "edit/:id",
-        element: <Edit />,
+        children: [
+            {
+                path: "create/",
+                element: <CreateEmployee />,
+            },
+            {
+                path: "edit/:id",
+                element: <UpdateEmployee />,
+            },
+            {
+                path: "/",
+                element: <EmployeeContainer />,
+            },
+        ],
     },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     <React.Fragment>
         <QueryClientProvider client={queryClient}>
-            <App />
             <RouterProvider router={router} />
-            <ReactQueryDevtools initialIsOpen={false} />
         </QueryClientProvider>
     </React.Fragment>
 );

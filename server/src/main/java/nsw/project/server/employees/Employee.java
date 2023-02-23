@@ -36,8 +36,7 @@ public class Employee {
 	@Column
 	private String email;
 	
-	@Column(length = 13)
-	@Size(min = 10, max = 13)
+	@Column()
 	private String phoneNumber;
 	
 	@Column

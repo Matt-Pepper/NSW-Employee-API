@@ -24,7 +24,7 @@ public class EmployeeCreateDTO {
 	private String email;
 
 	@NotBlank
-	@Pattern(regexp = "(\\+61|0)[0-9]{9}")
+	@Pattern(regexp = "^(?:\\+?61|0) ?(?:4|[578]\\d) ?(?:\\d ?){8}\\b|^(?:\\+61|61|0)?(?:\\((?:0[1-9])\\)|0[1-9])[ ]?\\d{4}[ ]?\\d{4}$")
 	private String phoneNumber;
 
 	@NotBlank
@@ -46,7 +46,7 @@ public class EmployeeCreateDTO {
 	private java.util.Date endDate;
 
 	public EmployeeCreateDTO(@NotBlank String firstName, String middleNames, @NotBlank String lastName,
-			@NotBlank @Email String email, @NotBlank @Pattern(regexp = "(\\+61|0)[0-9]{9}") String phoneNumber,
+			@NotBlank @Email String email, @NotBlank @Pattern(regexp = "^(?:\\+?61|0) ?(?:4|[578]\\d) ?(?:\\d ?){8}\\b|^(?:\\+61|61|0)?(?:\\((?:0[1-9])\\)|0[1-9])[ ]?\\d{4}[ ]?\\d{4}$") String phoneNumber,
 			@NotBlank String address, @NotNull Boolean isPermanent, @NotNull Boolean isFullTime,
 			@NotNull @Min(0) @Max(168) short hoursPerWeek, Date startDate, Date endDate) {
 		super();

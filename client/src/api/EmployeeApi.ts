@@ -22,19 +22,19 @@ export const getEmployeeFn = async (id: string) => {
     return response.data;
 };
 
-export const createEmployeeFn = async (formData: FormData) => {
-    const response = await Api.post<IEmployeeResponse>(`/employees`, formData, {
+export const createEmployeeFn = async (form: IEmployeeResponse) => {
+    const response = await Api.post<IEmployeeResponse>(`/employees`, form, {
         headers: {
-            "Content-Type": "multipart/form-data",
+            "Content-Type": "application/json;charset=utf-8",
         },
     });
     return response.data;
 };
 
-export const updateEmployeeFn = async ({ id, formData }: { id: string; formData: FormData }) => {
-    const response = await Api.patch(`/employees/${id}`, formData, {
+export const updateEmployeeFn = async ({ id, form }: { id: string; form: IEmployeeResponse }) => {
+    const response = await Api.patch(`/employees/${id}`, form, {
         headers: {
-            "Content-Type": "multipart/form-data",
+            "Content-Type": "application/json;charset=utf-8",
         },
     });
     return response.data;

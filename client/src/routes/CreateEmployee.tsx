@@ -1,11 +1,7 @@
-import EmployeeForm from "../components/EmployeeForm/EmployeeForm";
+import CreateEmployeeForm from "../components/CreateEmployeeForm/CreateEmployeeForm";
 
 const CreateEmployee = () => {
-    return (
-        <div>
-            <EmployeeForm />
-        </div>
-    );
+    return <CreateEmployeeForm />;
 };
 
 export default CreateEmployee;
