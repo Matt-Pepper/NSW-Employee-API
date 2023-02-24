@@ -17,7 +17,10 @@ export const getAllEmployeesFn = async () => {
     return response.data;
 };
 
-export const getEmployeeFn = async (id: string) => {
+export const getEmployeeFn = async (id: string | undefined) => {
+    if (id === undefined) {
+        return;
+    }
     const response = await Api.get<IEmployeeResponse>(`/employees/${id}`);
     return response.data;
 };
@@ -31,8 +34,8 @@ export const createEmployeeFn = async (form: IEmployeeResponse) => {
     return response.data;
 };
 
-export const updateEmployeeFn = async ({ id, form }: { id: string; form: IEmployeeResponse }) => {
-    const response = await Api.patch(`/employees/${id}`, form, {
+export const updateEmployeeFn = async (form: IEmployeeResponse) => {
+    const response = await Api.patch(`/employees/${form.id}`, form, {
         headers: {
             "Content-Type": "application/json;charset=utf-8",
         },

@@ -35,6 +35,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     <React.Fragment>
         <QueryClientProvider client={queryClient}>
             <RouterProvider router={router} />
+            <ReactQueryDevtools />
         </QueryClientProvider>
     </React.Fragment>
 );
