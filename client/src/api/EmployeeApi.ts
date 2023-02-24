@@ -22,6 +22,7 @@ export const getEmployeeFn = async (id: string | undefined) => {
         return;
     }
     const response = await Api.get<IEmployeeResponse>(`/employees/${id}`);
+
     return response.data;
 };
 

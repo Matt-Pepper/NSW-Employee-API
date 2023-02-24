@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import EmployeeContainer from "./containers/EmployeeContainer/EmployeeContainer";
 import "./index.css";
 import CreateEmployee from "./routes/CreateEmployee";
+import ErrorPage from "./routes/error-page";
 import Root from "./routes/Root";
 import UpdateEmployee from "./routes/UpdateEmployee";
 
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
     {
         path: "/",
         element: <Root />,
+        errorElement: <ErrorPage />,
         children: [
             {
                 path: "create/",
@@ -35,7 +37,6 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     <React.Fragment>
         <QueryClientProvider client={queryClient}>
             <RouterProvider router={router} />
-            <ReactQueryDevtools />
         </QueryClientProvider>
     </React.Fragment>
 );

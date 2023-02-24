@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Card, CardBody, CardText, CardHeader, CardFooter, Button } from "reactstrap";
 import { IEmployeeResponse } from "../../api/types";
 import ConfirmModal from "../ConfirmModal/ConfirmModal";
@@ -10,6 +10,7 @@ const EmployeeCard: React.FunctionComponent<IEmployeeResponse> = (props) => {
     const [modal, setModal] = useState(false);
 
     const employee = { id, firstName };
+    const navigate = useNavigate();
 
     const toggle = () => setModal(!modal);
 
@@ -46,7 +47,9 @@ const EmployeeCard: React.FunctionComponent<IEmployeeResponse> = (props) => {
             <CardFooter
                 style={{ display: "flex", justifyContent: "space-evenly", alignItems: "center" }}
             >
-                <Link to={`/edit/${id}`}>Edit</Link>
+                <Button color="primary" onClick={() => navigate(`/edit/${id}`)}>
+                    Edit
+                </Button>
                 <Button color="danger" outline onClick={() => toggle()}>
                     Remove
                 </Button>

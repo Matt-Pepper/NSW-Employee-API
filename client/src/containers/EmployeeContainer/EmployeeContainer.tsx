@@ -1,4 +1,6 @@
 import { useQuery } from "react-query";
+import { Link } from "react-router-dom";
+import { Alert } from "reactstrap";
 import { getAllEmployeesFn } from "../../api/EmployeeApi";
 import EmployeeCard from "../../components/EmployeeCard/EmployeeCard";
 
@@ -10,7 +12,17 @@ const EmployeeContainer = () => {
 
     if (isLoading) return <p>Loading...</p>;
 
-    if (error) return <p>{"An error has occurred: " + error}</p>;
+    if (error)
+        return (
+            <Alert color="danger">
+                <h1>Opps!</h1>
+                <p>Sorry, an unexpected error has occurred.</p>
+                <p>
+                    <i>{`${error}`}</i>
+                </p>
+                <Link to={"/"}>Home</Link>
+            </Alert>
+        );
 
     return (
         <>

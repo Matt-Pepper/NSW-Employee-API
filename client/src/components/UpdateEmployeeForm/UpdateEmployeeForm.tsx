@@ -1,8 +1,18 @@
 import { useEffect, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useMutation, useQuery, useQueryClient } from "react-query";
-import { useNavigate, useParams } from "react-router-dom";
-import { Button, Col, Form, FormFeedback, FormGroup, FormText, Label, Row } from "reactstrap";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import {
+    Alert,
+    Button,
+    Col,
+    Form,
+    FormFeedback,
+    FormGroup,
+    FormText,
+    Label,
+    Row,
+} from "reactstrap";
 import { getEmployeeFn, updateEmployeeFn } from "../../api/EmployeeApi";
 import { IEmployeeResponse } from "../../api/types";
 
@@ -66,9 +76,18 @@ const UpdateEmployeeForm = () => {
         setHasEndDate(!hasEndDate);
     };
 
+    if (error)
+        return (
+            <Alert color="danger">
+                <h1>Opps!</h1>
+                <p>Sorry, an unexpected error has occurred.</p>
+                <p>
+                    <i>{`${error}`}</i>
+                </p>
+                <Link to={"/"}>Home</Link>
+            </Alert>
+        );
     if (isLoading) return <p>Loading...</p>;
-
-    if (error) return <p>{"An error has occurred: " + error}</p>;
 
     return (
         <Form style={{ padding: "60px" }} onSubmit={handleSubmit(onSubmitHandler)}>
