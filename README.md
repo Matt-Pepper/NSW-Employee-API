@@ -45,13 +45,13 @@ The following technologies were used in this project:
 
 ## API Endpoints
 
-| Method                  | Endpoint          | Description                        |
-| ----------------------- | ----------------- | ---------------------------------- |
-| [GET](#get-employees)   | `/employees`      | Retrieve all employees             |
-| [GET](#get-employeesid) | `/employees/{id}` | Retrieve a specific employee by ID |
-| [POST](#post-employees) | `/employees`      | Create a new employee              |
-| PATCH                   | `/employees/{id}` | Update an existing employee        |
-| DELETE                  | `/employees/{id}` | Delete an employee by ID           |
+| Method                        | Endpoint          | Description                        |
+| ----------------------------- | ----------------- | ---------------------------------- |
+| [GET](#get-employees)         | `/employees`      | Retrieve all employees             |
+| [GET](#get-employeesid)       | `/employees/{id}` | Retrieve a specific employee by ID |
+| [POST](#post-employees)       | `/employees`      | Create a new employee              |
+| [PATCH](#patch-employeesid)   | `/employees/{id}` | Update an existing employee        |
+| [DELETE](#delete-employeesid) | `/employees/{id}` | Delete an employee by ID           |
 
 ### Examples
 
