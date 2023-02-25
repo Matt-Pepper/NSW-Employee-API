@@ -2,6 +2,29 @@
 
 This is a web application for managing employees. The project consists of a Spring RESTful API and a React TypeScript frontend.
 
+## Table of Contents
+
+-   [NSW Employee API](#nsw-employee-api)
+    -   [Table of Contents](#table-of-contents)
+    -   [Technology Stack](#technology-stack)
+        -   [Frontend](#frontend)
+        -   [Backend](#backend)
+    -   [API Endpoints](#api-endpoints)
+        -   [Examples](#examples)
+            -   [Request](#request)
+            -   [Response](#response)
+        -   [GET /employees](#get-employees)
+        -   [GET /employees/{id}](#get-employeesid)
+        -   [POST /employees](#post-employees)
+        -   [PATCH /employees/{id}](#patch-employeesid)
+        -   [DELETE /employees/{id}](#delete-employeesid)
+    -   [Getting Started](#getting-started)
+        -   [Prerequisites](#prerequisites)
+        -   [Clone the Repository](#clone-the-repository)
+        -   [Database Setup](#database-setup)
+        -   [Backend Setup](#backend-setup)
+        -   [Frontend Setup](#frontend-setup)
+
 ## Technology Stack
 
 The following technologies were used in this project:
@@ -20,19 +43,132 @@ The following technologies were used in this project:
 -   Java 17
 -   MYSQL
 
-## Table of Contents
+## API Endpoints
 
--   [NSW Employee API](#nsw-employee-api)
-    -   [Technology Stack](#technology-stack)
-        -   [Frontend](#frontend)
-        -   [Backend](#backend)
-    -   [Table of Contents](#table-of-contents)
-    -   [Getting Started](#getting-started)
-        -   [Prerequisites](#prerequisites)
-        -   [Clone the Repository](#clone-the-repository)
-        -   [Database Setup](#database-setup)
-        -   [Backend Setup](#backend-setup)
-        -   [Frontend Setup](#frontend-setup)
+| Method                  | Endpoint          | Description                        |
+| ----------------------- | ----------------- | ---------------------------------- |
+| [GET](#get-employees)   | `/employees`      | Retrieve all employees             |
+| [GET](#get-employeesid) | `/employees/{id}` | Retrieve a specific employee by ID |
+| [POST](#post-employees) | `/employees`      | Create a new employee              |
+| PATCH                   | `/employees/{id}` | Update an existing employee        |
+| DELETE                  | `/employees/{id}` | Delete an employee by ID           |
+
+### Examples
+
+#### Request
+
+```json
+{
+    "firstName": "Bob",
+    "middleNames": null,
+    "lastName": "Smith",
+    "email": "bob.smith@example.com",
+    "phoneNumber": "0412345678",
+    "address": "789 Example St, Sydney, NSW",
+    "isPermanent": true,
+    "isFullTime": true,
+    "hoursPerWeek": 40,
+    "startDate": "2022-01-01",
+    "endDate": null
+}
+```
+
+#### Response
+
+```json
+{
+    "id": 1,
+    "firstName": "Bob",
+    "middleNames": null,
+    "lastName": "Smith",
+    "email": "bob.smith@example.com",
+    "phoneNumber": "0412345678",
+    "address": "789 Example St, Sydney, NSW",
+    "isPermanent": true,
+    "isFullTime": true,
+    "hoursPerWeek": 40,
+    "startDate": "2022-01-01",
+    "endDate": null
+}
+```
+
+### GET /employees
+
+Retrieves a list of all employees.
+
+-   Parameters
+
+None
+
+-   Response
+
+An array of employees and a `200 OK` response code.
+
+### GET /employees/{id}
+
+Retrieves an employee by their ID.
+
+-   Parameters
+
+id - The ID of the employee to retrieve.
+
+-   Response
+
+A single employee and a `200 OK` response code.
+
+### POST /employees
+
+Creates a new employee.
+
+-   Parameters
+
+The request body must contain a JSON object with the following properties:
+
+-   `firstName` (string, required) - The employee's first name.
+-   `middleNames` (string, optional) - The employee's middle name(s).
+-   `lastName` (string, required) - The employee's last name.
+-   `email` (string, required) - The employee's email address.
+-   `phoneNumber` (string, required) - The employee's phone number.
+-   `address` (string, required) - The employee's address.
+-   `isPermanent` (boolean, required) - Indicates whether the employee is permanent or not.
+-   `isFullTime` (boolean, required) - Indicates whether the employee is full-time or not.
+-   `hoursPerWeek` (number, required) - The number of hours the employee works per week.
+-   `startDate` (string, optional) - The date the employee started working (in ISO-8601 format, e.g. "2022-01-01").
+-   `endDate` (string, optional) - The date the employee stopped working (in ISO-8601 format, e.g. "2022-12-31").
+
+-   Request
+
+Requires minimum that all not optional fields are provided.
+
+-   Response
+
+Returns the created employee, a `201 Created` response code.
+
+### PATCH /employees/{id}
+
+Finds an employee by id and if it exists in the database will make requested changes.
+
+-   Parameters
+
+id - The ID of the employee to update.
+
+And a valid employee request body.
+
+-   Response
+
+Server will return a `204 No Content` response code.
+
+### DELETE /employees/{id}
+
+Finds an employee by id and if it exists removes the record from the database.
+
+-   Parameters
+
+id - The ID of the employee to delete.
+
+-   Response
+
+Server will return a `204 No Content` response code.
 
 ## Getting Started
 
