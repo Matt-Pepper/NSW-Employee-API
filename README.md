@@ -24,6 +24,8 @@ This is a web application for managing employees. The project consists of a Spri
         -   [Database Setup](#database-setup)
         -   [Backend Setup](#backend-setup)
         -   [Frontend Setup](#frontend-setup)
+    -   [Deployment](#deployment)
+        -   [First Steps](#first-steps)
 
 ## Technology Stack
 
@@ -244,3 +246,24 @@ npm run dev
 ```
 
 This will start the frontend on `http://localhost:5173`.
+
+## Deployment
+
+### First Steps
+
+Open a terminal in the `NSW-Employee-API` directory and type the following commands:
+
+```bash
+# Change directory to the React app
+cd client
+
+# Install dependencies and build the app
+npm install
+npm run build
+
+# Change directory to the Spring Boot app
+cd ../server
+
+# Build the Spring Boot app
+mvn clean package
+```
