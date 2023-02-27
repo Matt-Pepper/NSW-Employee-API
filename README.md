@@ -204,7 +204,7 @@ Open the `application.properties` file in the `server/src/main/resources/` direc
 ```bash
 spring.datasource.url=jdbc:mysql://localhost:3306/employees
 spring.datasource.username=root
-spring.datasource.password=MyPass
+spring.datasource.password=MyPass2020
 ```
 
 If you are using a different database, update the `spring.datasource.url` property accordingly.
@@ -212,6 +212,8 @@ If you are using a different database, update the `spring.datasource.url` proper
 Spring boot will create the required tables.
 
 ### Backend Setup
+
+Go to the `./server/src/main/resources` directory and open the `.env` file and change the username and password to your MySQL credentials.
 
 Open a terminal and navigate to the `server` directory.
 
@@ -260,6 +262,7 @@ cd client
 # Install dependencies and build the app
 npm install
 npm run build
+# Build files will get stored in ./server/src/main/resources/static
 
 # Change directory to the Spring Boot app
 cd ../server

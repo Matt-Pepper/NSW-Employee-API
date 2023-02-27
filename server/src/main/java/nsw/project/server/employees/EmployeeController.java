@@ -21,7 +21,7 @@ import jakarta.validation.Valid;
 
 
 @RestController
-@RequestMapping("/employees")
+@RequestMapping("/api/employees")
 @CrossOrigin(origins = {"${frontend.url}"}, methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.PATCH, RequestMethod.DELETE })
 public class EmployeeController {
 

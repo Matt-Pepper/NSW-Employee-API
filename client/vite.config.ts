@@ -3,10 +3,14 @@ import react from "@vitejs/plugin-react-swc";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+    build: {
+        outDir: "../server/src/main/resources/static",
+        emptyOutDir: true,
+    },
     server: {
         proxy: {
             "/api": {
-                target: "http://employeeapi-env.eba-kdb7me3s.ap-northeast-1.elasticbeanstalk.com",
+                target: "http://localhost:8080",
                 changeOrigin: true,
                 secure: false,
             },
