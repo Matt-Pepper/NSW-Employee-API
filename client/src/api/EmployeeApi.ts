@@ -1,7 +1,7 @@
 import { IEmployeeResponse } from "./types";
 import axios from "axios";
 
-const BASE_URL = "/api";
+const BASE_URL = "http://employeeapi-env.eba-kdb7me3s.ap-northeast-1.elasticbeanstalk.com/api";
 
 const Api = axios.create({
     baseURL: BASE_URL,
