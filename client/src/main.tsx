@@ -11,30 +11,27 @@ import Root from "./routes/Root";
 import UpdateEmployee from "./routes/UpdateEmployee";
 
 const queryClient = new QueryClient();
-const router = createBrowserRouter(
-    [
-        {
-            path: "/",
-            element: <Root />,
-            errorElement: <ErrorPage />,
-            children: [
-                {
-                    path: "create/",
-                    element: <CreateEmployee />,
-                },
-                {
-                    path: "edit/:id",
-                    element: <UpdateEmployee />,
-                },
-                {
-                    path: "/",
-                    element: <EmployeeContainer />,
-                },
-            ],
-        },
-    ],
-    { basename: "/NSW-Employee-API" }
-);
+const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <Root />,
+        errorElement: <ErrorPage />,
+        children: [
+            {
+                path: "create/",
+                element: <CreateEmployee />,
+            },
+            {
+                path: "edit/:id",
+                element: <UpdateEmployee />,
+            },
+            {
+                path: "/",
+                element: <EmployeeContainer />,
+            },
+        ],
+    },
+]);
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     <React.Fragment>
