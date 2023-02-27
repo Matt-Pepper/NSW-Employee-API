@@ -3,10 +3,11 @@ import react from "@vitejs/plugin-react-swc";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+    base: "/NSW-Employee-API/",
     server: {
         proxy: {
             "/api": {
-                target: "http://localhost:8080",
+                target: "http://employeeapi-env.eba-kdb7me3s.ap-northeast-1.elasticbeanstalk.com",
                 changeOrigin: true,
                 secure: false,
             },
